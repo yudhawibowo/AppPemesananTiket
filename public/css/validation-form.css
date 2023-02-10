@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+.input-pengukuran-section .wrap-dua,
+.input-pengukuran-section .wrap-satu {
+	margin-top:5px;
+}
+
+.form-group .invalid-input {
+	font-size: 11px;
+}
+
+.form-group label {
+	margin-bottom: 3px;
+}
+
+.input-pengukuran-section .wrap-dua {
+	border-left: 1px solid rgb(155,155,155);
+}
+
+.input-gardu-section .form-group, 
+.input-pengukuran-section .form-group {
+	position: relative;
+	margin-bottom: 0;
+}
+
+.input-gardu-section i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+}
+
+.input-pengukuran-section i {
+	visibility: hidden;
+	position: absolute;
+	top: 33px;
+	right: 10px;
+}
+
+
+.input-gardu-section .success input,
+.input-pengukuran-section .success input {
+	border-color: #2ecc71;
+}
+
+.input-gardu-section .error input,
+.input-pengukuran-section .error input {
+	border-color: #e74c3c;
+}
+
+.input-gardu-section .success i.fa-check-circle,
+.input-pengukuran-section .success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.input-gardu-section .error i.fa-exclamation-circle,
+.input-pengukuran-section .error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.input-gardu-section .invalid-input, 
+.input-pengukuran-section .invalid-input  {
+	color: #e74c3c;
+    visibility: hidden;
+}
+
+.input-gardu-section .error .invalid-input,
+.input-pengukuran-section .error .invalid-input {
+	visibility: visible;
+}
+
+.input-pengukuran-section .wrap-dua-A {
+	margin-left: 30px;
+}
+
+.input-pengukuran-section input[type=text], 
+.input-pengukuran-section input[type=date],
+.input-pengukuran-section input[type=time] {
+	height: 30px !important;
+	font-size: 12px !important;
+	padding: 10px !important;
+}
+
+.input-pengukuran-section .wrap-dua-A input {
+	height: 30px !important;
+	font-size: 10px;
+}
+
+@media(max-width: 767px) {
+
+	.input-pengukuran-section .wrap-dua {
+		margin-top: 0px;
+		border-left: none;
+	}
+	.input-pengukuran-section .wrap-satu {
+		margin-bottom: 0px;
+	}
+
+}

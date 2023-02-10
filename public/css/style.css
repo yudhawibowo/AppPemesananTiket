@@ -1,0 +1,76 @@
+/*#####################################
+        List Data Barang
+########################################*/
+.content-wrapper {
+    position: relative;
+}
+
+#dark-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 44;
+}
+
+.buttons-excel {
+    color: white !important;
+    background-color: #007B1A !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+    border-width: 1px !important;
+    font-size: 15px !important;
+    /* margin-left: 30px !important; */
+    font-weight: 600;
+}
+
+.buttons-excel img {
+    width: 30px;
+    height: 30px;
+}
+
+.tabel-barang {
+    overflow: scroll
+}
+
+.content-wrapper .generate-code {
+    background-color: #374F96;
+    border: 1px solid #374F96;
+    padding: 7px 25px 7px 25px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+
+.content-wrapper .generate-code:hover {
+    background-color: #374F96 !important;
+    border: 1px solid #374F96 !important;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.dt-button-background {
+    width: 0 !important;
+    height: 0 !important;
+    position: inherit !important;
+}
+
+
+/* button.dt-button:focus:not(.disabled), button.dt-button:active:not(.disabled) {
+    background-color: #F29D00 !important;
+}
+
+button.dt-button:focus:not(.disabled) {
+    background: #F29D00 !important;
+} */
+
