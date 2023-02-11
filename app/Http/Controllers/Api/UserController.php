@@ -72,13 +72,13 @@ class UserController extends Controller
         $password = $request['password'];
         $photo = $request['photo'];
 
-        $check = User::where("email", $email)->count();
+        $check = User::where("email", $email)->where("id", "!=", $id)->count();
 
         if ($check > 0) {
             return response()->json(['status' => "error", "message" => "Email Sudah Ada"]);
         }
 
-        $namafile = "default.png";
+        $namafile = "";
         if ($photo) {
             $extention = $photo->getClientOriginalExtension();
             $tujuan_upload = 'img/user/';
@@ -91,12 +91,14 @@ class UserController extends Controller
 
         $user = User::find($id);
         $user->nama = $nama;
-        $user->nomor = $nomor;
+        $user->nomor_hp = $nomor;
         $user->email = $email;
         if($password){
             $user->password = password_hash($password, PASSWORD_DEFAULT);
         }
         $user->save();
+
+        return response()->json(['status' => "success", 'message' => 'Berhasil Upload', 'data' => $namafile]);
     }
 
     public function updatephoto(Request $request)

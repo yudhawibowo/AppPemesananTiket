@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +11,10 @@ class PemesananController extends Controller
 {
     public function index(Request $request){
         $id_user  = $request->id_user;
-        $data = DB::table("pemesanan")->join("tiket", "tiket.id", "=", "pemesanan.id_tiket")->where("id_user", $id_user)->get();
+        $data = DB::table("pemesanan")
+        ->select("*", "pemesanan.id as id", DB::raw("date_format(pemesanan.created_at, '%d/%m/%Y %H:%i:%s') as tanggal"))
+        ->join("tiket", "tiket.id", "=", "pemesanan.id_tiket")
+        ->where("id_user", $id_user)->get();
         return $data;
     }
 
@@ -40,7 +42,7 @@ class PemesananController extends Controller
     }
 
 
-    public function updatebukti(Request $request)
+    public function uploadbukti(Request $request)
     {
         $photo = $request['photo'];
         $id = $request->id;
@@ -51,10 +53,8 @@ class PemesananController extends Controller
             $namafile =  $id . date('Ymdhis') . '.' . $extention;
             $photo->move($tujuan_upload, $namafile);
             $data = Pemesanan::find($id);
-            if ($photo) {
-                $data->bukti = $namafile;
-                $data->save();
-            }
+            $data->bukti = $namafile;
+            $data->save();
         }
         return response()->json(['status' => "success", 'message' => 'Berhasil Upload', 'data' => $namafile]);
     }
