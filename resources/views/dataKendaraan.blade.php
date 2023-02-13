@@ -26,7 +26,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Tiket</th>
-                                <th>Jenis Kendaraan</th>
+                                <th>Jenis</th>
                                 <th>Nomor Kendaraan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -53,8 +53,8 @@
                         <label class="m-0 mt-1">Nama</label>
                         <input placeholder="Nama" class="form-control" id="nama" type="text" autocomplete="off"
                             required>
-                        <label class="m-0 mt-1">Jenis Kendaraan</label>
-                        <input placeholder="Jenis Kendaraan" class="form-control" id="jenis" type="text"
+                        <label class="m-0 mt-1">Jenis</label>
+                        <input placeholder="Jenis" class="form-control" id="jenis" type="text"
                             autocomplete="off" required>
                         <label class="m-0 mt-1">Nomor Kendaraan</label>
                         <input placeholder="Nomor Kendaraan" class="form-control" id="nomor" type="text"
@@ -83,8 +83,8 @@
                         <label class="m-0 mt-1">Merek</label>
                         <input placeholder="Nama" class="form-control" id="namaedit" type="text" autocomplete="off"
                             required>
-                        <label class="m-0 mt-1">Jenis Kendaraan</label>
-                        <input placeholder="Jenis Kendaraan" class="form-control" id="jenisedit" type="text"
+                        <label class="m-0 mt-1">Jenis</label>
+                        <input placeholder="Jenis" class="form-control" id="jenisedit" type="text"
                             autocomplete="off" required>
                         <label class="m-0 mt-1">Nomor Kendaraan</label>
                         <input placeholder="Nomor Kendaraan" class="form-control" id="nomoredit" type="text"
@@ -107,15 +107,6 @@
                 "aaData": data,
                 "dom": 'Bfrtip',
                 buttons: [{
-                    extend: 'excelHtml5',
-                    text: '<span class="green"><img src="https://img.icons8.com/color/48/000000/ms-excel.png"/>Export</span>',
-                    title: 'Data Kendaraan ' + getDateToday(),
-                    download: 'open',
-                    orientation: 'landscape',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3]
-                    }
-                }, {
                     text: '<i class="fas fa-plus-circle"></i> Tambah Kendaraan',
                     "className": "generate-code",
                     action: function(e, dt, node, config) {
@@ -142,7 +133,7 @@
             if (nama == "") {
                 swal("error", "Nama Tidak Boleh Kosong", "error")
             } else if (jenis == "") {
-                swal("error", "Jenis Kendaraan Tidak Boleh Kosong", "error")
+                swal("error", "Jenis Tidak Boleh Kosong", "error")
             } else {
                 swal({
                     title: "",
@@ -190,7 +181,7 @@
             if (nama == "") {
                 swal("error", "Nama Tidak Boleh Kosong", "error")
             } else if (jenis == "") {
-                swal("error", "Jenis Kendaraan Tidak Boleh Kosong", "error")
+                swal("error", "Jenis Tidak Boleh Kosong", "error")
             } else {
                 swal({
                     title: "",

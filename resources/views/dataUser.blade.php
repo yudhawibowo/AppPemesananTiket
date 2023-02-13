@@ -114,15 +114,6 @@
                 "aaData": data,
                 "dom": 'Bfrtip',
                 buttons: [{
-                    extend: 'excelHtml5',
-                    text: '<span class="green"><img src="https://img.icons8.com/color/48/000000/ms-excel.png"/>Export</span>',
-                    title: 'Data User ' + getDateToday(),
-                    download: 'open',
-                    orientation: 'landscape',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3]
-                    }
-                }, {
                     text: '<i class="fas fa-plus-circle"></i> Tambah User',
                     "className": "generate-code",
                     action: function(e, dt, node, config) {

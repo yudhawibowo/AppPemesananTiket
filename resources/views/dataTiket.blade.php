@@ -26,7 +26,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Kode</th>
-                                <th>Jenis Kendaraan</th>
+                                <th>Jenis</th>
                                 <th>Harga Tiket</th>
                                 <th>Aksi</th>
                             </tr>
@@ -53,8 +53,8 @@
                         <label class="m-0 mt-1">Kode</label>
                         <input placeholder="Kode Tiket" class="form-control" id="kode" type="text" autocomplete="off"
                             required>
-                        <label class="m-0 mt-1">Jenis Kendaraan</label>
-                        <input placeholder="Jenis Kendaraan" class="form-control" id="jenis" type="text"
+                        <label class="m-0 mt-1">Jenis</label>
+                        <input placeholder="Jenis" class="form-control" id="jenis" type="text"
                             autocomplete="off" required>
                         <label class="m-0 mt-1">Harga</label>
                         <input placeholder="Harga Tiket" class="form-control" id="harga" type="text"
@@ -80,10 +80,10 @@
                 <div class="modal-body">
                     <form action="" method="">
                         <input type="hidden" id="idedit">
-                        <label class="m-0 mt-1">Merek</label>
+                        <label class="m-0 mt-1">Kode</label>
                         <input placeholder="Kode" class="form-control" id="kodeedit" type="text" autocomplete="off"
                             required>
-                        <label class="m-0 mt-1">Jenis Kendaraan</label>
+                        <label class="m-0 mt-1">Jenis</label>
                         <input placeholder="Jenis Tiket" class="form-control" id="jenisedit" type="text"
                             autocomplete="off" required>
                         <label class="m-0 mt-1">Harga Tiket</label>
@@ -106,16 +106,7 @@
                 "responsive": true,
                 "aaData": data,
                 "dom": 'Bfrtip',
-                buttons: [{
-                    extend: 'excelHtml5',
-                    text: '<span class="green"><img src="https://img.icons8.com/color/48/000000/ms-excel.png"/>Export</span>',
-                    title: 'Data Tiket ' + getDateToday(),
-                    download: 'open',
-                    orientation: 'landscape',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3]
-                    }
-                }, {
+                buttons: [ {
                     text: '<i class="fas fa-plus-circle"></i> Tambah Tiket',
                     "className": "generate-code",
                     action: function(e, dt, node, config) {
@@ -291,7 +282,7 @@
                     for (let i = 0; i < data.length; i++) {
                         let idTiket = data[i].id;
                         let kode = data[i].kode;
-                        let jenis = data[i].jenis_kendaraan;
+                        let jenis = data[i].jenis;
                         let harga = data[i].harga
                         let btnAksi = "";
 

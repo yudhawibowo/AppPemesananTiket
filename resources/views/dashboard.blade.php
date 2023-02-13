@@ -64,6 +64,19 @@
                       </div>
                     </div>
                     <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-warning">
+                        <div class="inner">
+                          <h3 id="cUser">0</h3>
+                          <p>User</p>
+                        </div>
+                        <div class="icon">
+                          <i class="fas fa-bus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer" style="height:30px"></a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -89,6 +102,7 @@
                 $("#cTiket").text(data['tiket']);
                 $("#cKendaraan").text(data['kendaraan']);
                 $("#cPemesanan").text(data['pemesanan']);
+                $("#cUser").text(data['user']);
             }
         });
     } 

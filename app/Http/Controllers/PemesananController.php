@@ -31,7 +31,7 @@ class PemesananController extends Controller
     public function datapemesanan()
     {
         if (Auth::check()) {
-            $data = Pemesanan::with(["tiket", "user"])->where("status", 0)->get();
+            $data = Pemesanan::with(["user"])->where("status", 0)->get();
             return $data;
         }
         return redirect("login")->withSuccess('You are not allowed to access');
@@ -40,7 +40,7 @@ class PemesananController extends Controller
     public function datalaporan()
     {
         if (Auth::check()) {
-            $data = Pemesanan::with(["tiket", "user"])->select("*", DB::raw("date_format(created_at, '%d/%m/%Y %H:%i:%s') as tanggal_pemesanan"), DB::raw("date_format(updated_at, '%d/%m/%Y %H:%i:%s') as tanggal_konfirmasi"))->where("status", 0)->get();
+            $data = Pemesanan::with(["user"])->select("*", DB::raw("date_format(created_at, '%d/%m/%Y %H:%i:%s') as tanggal_pemesanan"), DB::raw("date_format(updated_at, '%d/%m/%Y %H:%i:%s') as tanggal_konfirmasi"))->where("status", 1)->get();
             return $data;
         }
         return redirect("login")->withSuccess('You are not allowed to access');

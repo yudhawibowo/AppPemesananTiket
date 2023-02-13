@@ -13,11 +13,13 @@ class HomeController extends Controller
         $tiket = DB::table("tiket")->count();
         $kendaraan = DB::table("kendaraan")->count();
         $pemesanan = DB::table("pemesanan")->count();
+        $user = DB::table("users")->where("id", "!=", 1)->count();
 
         $data = [
             'tiket' => $tiket,
             'kendaraan' => $kendaraan,
             'pemesanan' => $pemesanan,
+            'user' => $user,
         ];
 
         return response()->json($data);

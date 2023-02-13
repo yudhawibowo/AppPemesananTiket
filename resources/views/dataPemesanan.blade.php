@@ -26,8 +26,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama User</th>
-                                <th>Jenis Kendaraan</th>
-                                <th>Harga Pemesanan</th>
+                                <th>Jumlah Tiket</th>
+                                <th>Total Pemesanan</th>
                                 <th>Status Pembayaran</th>
                                 <th>Aksi</th>
                             </tr>
@@ -50,7 +50,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img id="img-qris" src="img/qris/">
+                    <img id="img-qris" style="width:100%;height:100%" src="img/qris/">
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
             $('#modal-qris').modal('toggle');
 
             if (gambar) {
-                var src = `{{ asset('img/qris/${gambar}') }}`;
+                var src = `{{ asset('img/qrcode/${gambar}') }}`;
                 $('#img-qris').attr("src", src);
             }
         }
@@ -189,8 +189,8 @@
                     for (let i = 0; i < data.length; i++) {
                         let idPemesanan = data[i].id;
                         let nama = data[i].user.nama;
-                        let jenis = data[i].tiket.jenis_kendaraan;
-                        let harga = "Rp. " + data[i].tiket.harga
+                        let total_qty = data[i].total_qty;
+                        let total_harga = "Rp. " + data[i].total_harga
                         let statusBayar = "";
                         let bukti = data[i].bukti
                         let qr_code = data[i].qr_code
@@ -203,7 +203,7 @@
                         <a title='delete' onclick="deletePemesanan('${idPemesanan}')" class='btn-aksi btn btn-sm btn-danger'>Hapus</a>`;
                         } else {
                             statusBayar =
-                                `Sudah Dibayar <a target='_blank' href="{{ asset('img/user/${bukti}') }}" class='btn btn-sm btn-primary'>lihat bukti</a>`
+                                `Sudah Dibayar <a target='_blank' href="{{ asset('img/bukti/${bukti}') }}" class='btn btn-sm btn-primary'>lihat bukti</a>`
                             btnAksi =
                                 `
                         <a title='kofirmasi' onclick="ubahStatus('${idPemesanan}')" class='btn-aksi btn btn-sm btn-success'>Konfirmasi</a>
@@ -212,7 +212,7 @@
                         }
 
 
-                        arrayReturn.push([i + 1, nama, jenis, harga, statusBayar, btnAksi]);
+                        arrayReturn.push([i + 1, nama, total_qty, total_harga, statusBayar, btnAksi]);
                     }
                     inittable(arrayReturn);
                 },

@@ -42,3 +42,4 @@ Route::get('tiket', [TiketController::class, 'index']);
 Route::get('pemesanan', [PemesananController::class, 'index']);
 Route::post('savepemesanan', [PemesananController::class, 'save']);
 Route::post('uploadbukti', [PemesananController::class, 'uploadbukti']);
+Route::get('orderdetail', [PemesananController::class, 'orderdetail']);

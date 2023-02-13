@@ -26,8 +26,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama User</th>
-                                <th>Jenis Kendaraan</th>
-                                <th>Harga Pemesanan</th>
+                                <th>Jumlah Tiket</th>
+                                <th>Total Pemesanan</th>
                                 <th>Tanggal Pemesanan</th>
                                 <th>Tanggal Konfirmasi</th>
                             </tr>
@@ -38,23 +38,6 @@
         </div>
     </div>
 
-    <div class="modal fade text-left" id="modal-qris" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33"
-        aria-hidden="true">
-        <div style="max-width:600px;" class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
-            role="document">
-            <div style="overflow-y: auto;" class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel33">QR Code</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <i data-feather="x"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img id="img-qris" src="img/qris/">
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @push('script')
@@ -73,19 +56,10 @@
                     download: 'open',
                     orientation: 'landscape',
                     exportOptions: {
-                        columns: [0, 1, 2, 3]
+                        columns: [0, 1, 2, 3, 4, 5]
                     }
                 }, ],
             });
-        }
-
-        function showQrCode(gambar) {
-            $('#modal-qris').modal('toggle');
-
-            if (gambar) {
-                var src = `{{ asset('img/qris/${gambar}') }}`;
-                $('#img-qris').attr("src", src);
-            }
         }
 
         function generateData() {
@@ -109,13 +83,13 @@
                     for (let i = 0; i < data.length; i++) {
                         let idPemesanan = data[i].id;
                         let nama = data[i].user.nama;
-                        let jenis = data[i].tiket.jenis_kendaraan;
-                        let harga = "Rp. " + data[i].tiket.harga
+                        let total_qty = data[i].total_qty;
+                        let total_harga = "Rp. " + data[i].total_harga;
                         let statusBayar = "";
                         let tanggal_pemesanan = data[i].tanggal_pemesanan;
                         let tanggal_konfirmasi = data[i].tanggal_konfirmasi;
 
-                        arrayReturn.push([i + 1, nama, jenis, harga, tanggal_pemesanan, tanggal_konfirmasi]);
+                        arrayReturn.push([i + 1, nama, total_qty, total_harga, tanggal_pemesanan, tanggal_konfirmasi]);
                     }
                     inittable(arrayReturn);
                 },

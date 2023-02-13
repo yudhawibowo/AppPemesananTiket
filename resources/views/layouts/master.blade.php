@@ -99,6 +99,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="{{ url('/tiketmasuk') }}" class="nav-link {{ $tiketmasuk ?? '' }}">
+                                <i class="nav-icon fas fa-ticket-alt"></i>
+                                <p>Tiket Masuk</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="{{ url('/tiket') }}" class="nav-link {{ $tiket ?? '' }}">
                                 <i class="nav-icon fas fa-ticket-alt"></i>
                                 <p>Data Tiket</p>
